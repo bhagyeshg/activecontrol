@@ -1,0 +1,1272 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+onehalfspacex, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the 
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+] % The class file specifying the document structure
+{MastersDoctoralThesis}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{wrapfig}
+\usepackage{mathpazo} % Use the Palatino font by default
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage[export]{adjustbox}
+\renewcommand\bibname{References}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Bhagyesh Govilkar}
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{subfig}
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{CStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=3.8cm, % Inner margin
+	outer=1.9cm, % Outer margin
+	bindingoffset=0cm, % Binding offset
+	top=2cm, % Top margin
+	bottom=2cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{UAV Smart Wing - active control of wing lift to suppress short-period oscillations} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Dr. T. Glyn \textsc{Thomas}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{MEng Aeronautics and Astronautics} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Bhagyesh \textsc{Govilkar}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{http://www.southampton.ac.uk}{University of Southampton}} % Your university's name and URL, this is used in the title page and , print it elsewhere with \univname
+\department{\href{http://department.university.com}{Department or School Name}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{http://researchgroup.university.com}{Research Group Name}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{http://faculty.university.com}{Faculty Name}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+\hypersetup{allcolors=.}
+}
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[3cm]
+\begin{center}
+\includegraphics[scale=0.3]{crest.jpg}		% University/department logo - uncomment to place it
+\end{center}
+
+\large \textit{This report is submitted in partial fulfillment of the
+requirements for the MEng Aeronautics and Astronautics, Faculty of Engineering and the
+Environment, University of Southampton}\\[0.3cm] % University requirement text
+Word Count : 9424
+ 
+\vfill
+
+{\large \today}\\[4cm] % Date
+
+ 
+\vfill
+\end{center}
+\end{titlepage}
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\section*{Abstract}
+\thispagestyle{fancy}
+Flight trajectory control has been discussed in several papers over the past few decades. Controlling the trajectory of flight has many benefits. A stable platform is easier and safer to operate. Any data being collected in flight will also be of higher quality because it is not being affected by external disturbances. Perhaps the greatest benefit of being able to control the flight path is that rejecting disturbances reduces the wear and tear on the aircraft. Failure due to fatigue is less likely as a result. The frequency of routine inspections can be reduced which cuts the downtime of the aircraft. The eventual “write-off” is also postponed. The economic value of such research is therefore very high. 
+\newline
+\newline
+In this report, a controller will be designed which can effectively reject disturbances in the wing lift. This will give the user better control over the aircraft and the operation of the aircraft will be made safer. A simulation model will be designed in Simulink which will attempt to approximate the plant before it is built. Consequently, the simulation optimised parameters will be applied to the actual system and will be tested in a wind tunnel. Any corrections that must be made to the parameters post testing will be outlined. Finally, a comparison will be made between the final parameters and the simulation parameters to realise any flaws within the model. This will be helpful to design a similar control system without a plant ready for testing.     
+
+ 
+
+\cleardoublepage
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\section*{Declaration}
+\thispagestyle{fancy}
+\let\cleardoublepage\clearpage
+ I, Bhagyesh Govilkar declare that this thesis and the work presented in it are my own and has
+been generated by me as the result of my own original research.
+I confirm that:
+\begin{enumerate}
+\item  This work was done wholly or mainly while in candidature for a degree at this
+University;
+\item  Where any part of this thesis has previously been submitted for any other
+qualification at this University or any other institution, this has been clearly stated;
+\item  Where I have consulted the published work of others, this is always clearly
+attributed;
+\item  Where I have quoted from the work of others, the source is always given. With
+the exception of such quotations, this thesis is entirely my own work;
+\item  I have acknowledged all main sources of help;
+\item  Where the thesis is based on work done by myself jointly with others, I have
+made clear exactly what was done by others and what I have contributed myself;
+\item  None of this work has been published before submission.
+\end{enumerate}
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\begin{acknowledgements}
+\thispagestyle{fancy}
+ % Add the acknowledgements to the table of contents
+I would firstly like to thank my supervisor, Dr T. Glyn Thomas who provided me with guidance and support every step of the way.
+\newline
+\newline
+I would also like to thank my coursemate and friend Aaron Byrne, who was instrumental in the manufacturing process.
+\newline
+\newline
+\end{acknowledgements}
+\endgroup
+\newpage
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+\thispagestyle{fancy}
+\textbf{SPO} & \textbf{S}hort \textbf{P}eriod \textbf{O}scillation\\
+\textbf{PID} & \textbf{P}roportional  \textbf{I}ntegral \textbf{D}erivative\\
+\textbf{I2C} & \textbf{I}nter-\textbf{I}ntegrated \textbf{C}ircuit\\
+\textbf{SPI} & \textbf{S}erial  \textbf{P}eripheral \textbf{I}nterface bus\\
+\end{abbreviations}
+\endgroup
+\newpage
+%----------------------------------------------------------------------------------------
+%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%----------------------------------------------------------------------------------------
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+\thispagestyle{fancy}
+% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+Density of air& $\rho$ & \SI{1.225}{\kilogram\per\meter^{3}} (at sea level at $15^{\circ}C$)\\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+Density of water& $\rho_{w}$ & \SI{1000}{\kilogram\per\meter^{3}} \\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+Gravitational acceleration&$g$&\SI{9.81}{\meter\per\second^{2}}  (at the surface of earth)\\
+\end{constants}
+\endgroup
+\newpage
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+\thispagestyle{fancy}
+$\omega_{n}$ & natural frequency & Hz \\
+$\zeta$ & Damping ratio \\
+$K_{p}$ & Proportional gain \\
+$K_{i}$ & Integral gain \\
+$K_{d}$ & Derivative gain \\
+$L$ & Lift & N \\
+$D$ & Drag & N \\
+$\rho$ & Damping ratio & $kgm^{-3}$\\
+$V$ & Airspeed & $ms^{-1}$ \\
+$S$ & Planform Area & $m^{2}$ \\
+$C_{L}$ & Coefficient of Lift \\
+$C_{p}$ & Coefficient of Pressure \\
+$\Delta h$ & Difference in fluid height $m$ \\
+$p_{0}$ & Stagnation/Total pressure & $Pa$\\
+$p$ & Static pressure & $Pa$ \\
+$\delta,\theta$ & Flap deflection angle & degrees \\
+$\alpha$ & Angle of Attack & degrees \\
+$N$ & Size of sample window \\
+$f$ & Sample rate & Hz \\
+$w_{1,2,3}$ & Lift estimator parameters \\
+$t_{i}$ & Integral/reset time\\
+$t_{d}$ & Derivative time constant\\
+$\tau , T$ & Time constant & $s$\\
+%Symbol & Name & Unit \\
+
+
+\end{symbols}
+\endgroup
+\newpage
+\thispagestyle{plain}
+\tableofcontents
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{plain} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+\chapter{Introduction}
+\thispagestyle{fancy}
+Unmanned Aerial Vehicles are becoming increasingly mainstream. With faster and more efficient means of manufacturing such as 3D printing gaining momentum, this will only serve to bolster the emerging market.
+\newline
+\newline
+There are several contemporary and potential applications of UAVs: they are widely used in agriculture to give farmers a detailed picture of the health of their farm, the amount of resources such as pesticides required and they can help cut down on labour costs; consumers and photographers are keen on buying products from UAV manufacturers such as DJI because these devices enable people to capture images/videos from extreme heights. The defence sector are using UAVs mostly to carry out surveillance and reconnaissance activities, a handful are even being used for offensive operations such as the MQ-9 Reaper. Commercial services such as Amazon Inc. have been known to conduct research in this technology\cite{ama}. The company has an ambitious goal: using UAVs to transport goods to their customers. 
+\newline
+\newline
+With this increasing usage of UAVs, there is a strong need for a control system that can give the user a stable, reliable and robust aircraft. The aim is to reduce the frequency of UAVs crashing, increase the life-span and reduce the maintenance costs. 
+\newline
+\newline
+In this project, the focus will be on fixed wing UAVs and to increase the speed of the response to disturbances in the lift. A fast response may be helpful in events such as a "short-period oscillation". This is one of the two longitudinal dynamic modes that occur on every aircraft, the other being a "phugoid oscillation". Short-period oscillations are characterised by the rapid decay and high frequency. A typical SPO can settle within a second and occurs at 1-2Hz. A pilot can induce a SPO by a sharp pitch input. They can also naturally occur due to a gust (impulsive increase/decrease in airspeed and/or angle of attack). 
+\newline
+\newline
+A UAV control system that is not tested in gusts is vulnerable to growing instability. It can act to reinforce the oscillation instead of cancelling them. Even if the system is proven to not introduce dynamic instabilities, the peak loading on the wing during a SPO event can test the structural limits of the aircraft making structural failures more likely. While this is not economically ideal, a more pressing concern is the health and safety risk created by such an event. 
+\newline
+\newline
+In this project, my goal will be to design a control system that minimises the effects of rapidly changing external conditions such as the airspeed in a gust in order to make UAVs safer to operate and also more economical. 
+\newpage
+\section{Literature review}
+\thispagestyle{fancy}
+The knowledge we currently have and the applications of this knowledge need to be established first to identify the areas in which there is a lack of understanding and where improvements and optimisations can be made. The intention of this chapter is to do exactly that. By the end of this chapter, it will be clear that there has been little development in this area and the reasons for this stagnation will also be explained.  
+\newline
+\newline
+\subsection{Phugoid suppression}
+It is worth looking at how phugoid oscillations are dealt with first since suppressing phugoid oscillations has been well documented. This is achieved through the use of a Pitch Attitude Controller and has been described by Etkin \cite{etkin}. More recently, a pitch-rate feedback control system was experimented with using an integral-separated PID controller \cite{huang}. In this controller, an error threshold is set below which the integral term in the PID calculation will be eliminated. This essentially makes it a PD controller until the pre-set threshold is crossed. The advantage of this is to limit the instability that the integral term brings but retain its tendency to remove steady-state errors. In both cases, the control system did well to suppress Phugoid oscillations and managed to weaken SPOs but relied on gyroscopes or other attitude sensors. This meant that the control system took action \textit{after} the flight dynamics caused a deviation in the pitch rate/angle from the nominal. This model is currently the state-of-the-art, but includes an intrinsic lag between the onset of the oscillations and the corrective action of the controller.  
+\newline
+\newline
+There has been little development in designing a control system that detects the disturbance at the source and takes action \textit{before} the flight dynamics can cause an appreciable change in attitude. In this project, the aim will be to achieve a control system that does not wait for a large change in attitude to occur before acting. This implies that the airflow around the wing will be controlled and the control of the flight trajectory is merely a consequence.
+\newline
+\newline
+\subsection{Aeroelastic control in wind turbines}
+\thispagestyle{fancy}
+Wind turbine blades are comparable to aircraft wings since both are lift generating devices and both run into similar issues. Studies on wind turbines and how active control systems are being used to improve performance, safety and robustness of the blades were considered. These are highly relevant to what this study is trying to achieve because all these studies fall under the category of flow control. To control the aerodynamic forces on a wing is also controlling the flow of air past the wing.
+\newline
+\newline
+There are multiple studies that look at aeroelastic control of wind turbine blades using trailing edge flaps and load sensors for input. There were two issues these studies dealt with: to suppress flutter\cite{liu}, an aeroelastic phenomenon in which a structure in a fluid flow undergoes simple-harmonic motion; and to delay fatigue of the blades\cite{lee} by reducing the cyclic loading. The first issue is a safety concern while the second issue is about the economic sustainability of the wind turbines. Replacing large turbine blades can be difficult and expensive because of their size. These turbines can also be located in challenging environments like the North Sea to complicate the logistics even further. Therefore, a control system that can elongate the life of a single blade is highly sough-after. 
+\newline
+\newline
+These studies have shown great success. Experiments showed that under gusting environments, settling times can be reduced by 50$\%$. In turbulence, the standard deviation of the load oscillation was reduced by 30$\%$. 
+In theory, this problem is quite similar to managing longitudinal dynamic modes in aircraft and the benefits are also similar. In both cases, simple harmonic motion is causing excessive loading on the wing or blade and reducing the life of the structure. Positive feedback can cause a disaster and is potentially a safety hazard. Performance of the system is degraded by these oscillations and this has an effect on the operational costs.  
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.8]{tunnel.png}
+\caption{The load variation in turbine blades has shown a decrease when controller was enabled at 9$ms^{-1}$ and 11$ms^{-1}$ airspeeds with gusting environments. \cite{lee}}
+\centering
+\end{figure}
+\newline
+This review of literature shows which areas have scope for improvement. It also shows the potential benefits of implementing such a control system. 
+\section{Aims and objectives}
+\thispagestyle{fancy}
+
+The aim of the project is to design a control system that manages to suppress the rapid change in lift production as may be seen by the wing through a gust.
+\newline
+\newline
+The control system should also be stable in steady conditions with no output disturbances. 
+\newline
+\newline
+It should advance the settling time of the oscillation in lift in relation to an existing control system that settles an SPO in 0.263 seconds. The target is to settle the lift  within 50$\%$ of that time. 
+\newline
+\newline
+The amplitude of the oscillation in lift should be smaller in the gust with the control system active than it would be without it. 
+\newline
+\newline
+Lastly, first principles modelling will be used to determine the optimal PID gains and design the control system. Then, based on wind tunnel data heuristic techniques driven by collected data will be used to further improve the performance. Eventually, the controller will be manually tuned by trial and error to fine tune the controller gains. Comparing the gains determined by Simulink to the optimal gains determined by testing will verify whether the first principles model was valid. If not, the possible flaws in the model will be explored. This will be helpful for designing a control system for UAVs whose plants have not yet been constructed. 
+\newline
+\newline
+In the next chapter, theory that can be applied to the project will be discussed. 
+\newline
+\newline
+Then the instrumentation, equipment and the set up to facilitate measurement and data recording will be determined. 
+\newline
+\newline
+Once the tools and equipment have been developed, the plant dynamics will be analysed in order to carry out simulations to obtain controller parameters. 
+\newline
+\newline
+The implementation and the algorithm of the control program will need to be designed prior to testing. 
+\newline
+\newline
+Finally, the control system will need to be tested in steady state conditions and in gusting environments and should clearly show that the control system manages to hold the lift at the setpoint.  
+
+
+
+
+\thispagestyle{fancy}
+\chapter{Theory}
+\thispagestyle{fancy}
+In this section, relevant theory that has been well established will be outlined. It may be helpful to first understand why SPOs occur and how control of wing lift can help solve the problem.  
+\section{Flight dynamics}
+
+This section will outline flight dynamics very briefly to help understand the mechanism of longitudinal dynamic modes such as a SPO.  
+
+The longitudinal equations of motion can be used as a starting point :
+\begin{multline}
+\begin{bmatrix}\Delta\dot{u}\\\dot{w}\\\dot{q}\\\Delta\dot{\theta}\end{bmatrix} =
+ \begin{bmatrix}\frac{\mathring{X}_{u}}{m}&\frac{\mathring{X}_{w}}{m}&0&-gcos\theta_{0}\\\frac{\mathring{Z}_{u}}{m-\mathring{Z}_{\dot{w}}}&\frac{\mathring{Z}_{w}}{m-\mathring{Z}_{\dot{w}}}&\frac{\mathring{Z}_{q}+mU_{\infty}}{m-\mathring{Z}_{\dot{w}}}&\frac{-mgsin\theta_{0}}{m-\mathring{Z}_{\dot{w}}}\\\frac{1}{I_{y}}\left[\mathring{M}_{u}+\frac{\mathring{M}_{\dot{w}}\mathring{Z_{u}}}{m-\mathring{Z}_{\dot{w}}}\right]&\frac{1}{I_{y}}\left[\mathring{M}_{w}+\frac{\mathring{M}_{\dot{w}}\mathring{Z_{u}}}{m-\mathring{Z}_{\dot{w}}}\right]&\frac{1}{I_{y}}\left[\mathring{M}_{q}+\frac{\mathring{M}_{\dot{w}}(\mathring{Z_{q}}+mU_{\infty})}{m-\mathring{Z}_{\dot{w}}}\right]&-\frac{M_{\dot{w}}mg\sin(\theta_{0})}{I_{y}(m-Z_{\dot{w}})}\\0&0&1&0\end{bmatrix}\begin{bmatrix}\Delta u\\w\\q\\\Delta\theta\end{bmatrix}+\\
+\begin{bmatrix}\frac{\Delta \mathring{X_{c}}}{m}\\\frac{\Delta \mathring{Z_{c}}}{m-\mathring{Z}{\dot{w}}}\\\frac{\Delta \mathring{M}_{c}}{I_{y}} + \frac{\mathring{M}_{\dot{w}}}{I_{y}}\frac{\Delta \mathring{Z_{c}}}{m-\mathring{Z}{\dot{w}}}\\0\end{bmatrix}
+\end{multline}
+
+
+The derivations of these equations are fairly straightforward but quite lengthy and can be found in virtually any flight mechanics/dynamics textbook \cite{etkin}. The dynamics of flight (in the longitudinal direction) are heavily influenced by physical and geometric parameters such as the mass and the second moments of inertia around the y-axis (lateral direction) which influences the rotational kinematics of the aircraft. They are also influenced by the aerodynamic derivatives (e.g. $ \mathring{X}_{u,w}, \mathring{Z}_{u,w,q,\dot{w}}, \mathring{M}_{u,w,q,\dot{w}}$). 
+
+These equations can be rewritten in the form:
+\begin{equation}
+\dot{\textbf{x}} = \textbf{Ax+B}
+\end{equation}
+
+Where $x$ is the state vector, $\textbf{A}$ is the system matrix (constant) and B is a vector of control forces and moments which can be considered 0.
+\begin{equation}
+\dot{\textbf{x}}=\textbf{Ax}
+\end{equation}
+This is a first order ODE which means that the solutions are in the form of
+\begin{equation}
+\textbf{x}=\textbf{x}_{0}e^{\lambda t}
+\end{equation}
+\begin{equation}
+\lambda\textbf{x}_{0}=\textbf{Ax}_{0}
+\end{equation}
+\begin{equation}
+(\textbf{A}-\lambda\textbf{I})\textbf{x}_{0}=0
+\end{equation}
+
+Non-trivial solutions occur when $det(\textbf{A}-\lambda\textbf{I})=0$. Solving this equation for any given aircraft will give a quartic equation (4th order polynomial) which when solved will give two pairs of complex conjugates. One of the pairs corresponds to the phugoid mode while the other one corresponds to the SPO. 
+
+For example, consider the Navion aircraft \cite{navion}:
+\begin{equation}
+\textbf{A} = \begin{bmatrix}
+-0.09148&0.04242&0&-32.17\\
+10.51&-3.066&152&0\\
+0.2054&-0.05581&-2.114&0\\
+0&0&1&0
+\end{bmatrix}
+\end{equation}
+
+Computing the eigenvalue of this matrix:
+\begin{figure}[H]
+
+\includegraphics[width=1\textwidth,left]{DI.png}
+\caption{Graph showing how the state variable (pitch rate) changes with time in SPO (blue line) and phugoid (orange line) modes. }
+
+\end{figure}
+The matrix produces two pairs of complex conjugate eigenvalues. The first pair $\lambda_{1,2}= -2.4352 \pm 2.6461i$ is the SPO mode. The decay rate (the real part) is much greater than the other pair $\lambda_{3,4} = -0.2006 \pm 0.2593i$ and so is the frequency (coefficient of i). 
+\subsection{The relevance to control of wing lift}
+The control vector \textbf{B} was assumed to be 0 here. In other words, this only applies if no control forces are applied. However, when the control system is active, vector \textbf{B} will not be 0. The controller will adjust this vector (specifically the third element) in order to oppose any disturbance including a dynamic mode. From equation 2.1, it can be seen that the aerodynamic derivatives relating to the pitching moment on the aircraft affect the pitch rate ($\dot{q}$). Pitching moment is influenced mostly by the aerodynamic contributions from the wing and the tailplane. Thus, controlling lift is a way of mitigating longitudinal dynamic modes.   
+
+
+Controlling dynamic modes as opposed to the lift is still different because the former implies a flight test. It can be difficult to test a control system directly on an aircraft because flight tests are more expensive, more complicated to run and pose some health and safety risks. It will be much more convenient, safer and quicker to run wind tunnel tests first. Therefore, the system will not be tested in an actual SPO but through a gust (which can induce a SPO). However, it is safe to assume that if the wing lift is being damped by the control system, a SPO will be suppressed during flight because the change in pitch angle is a result of the increased wing lift as discussed above. 
+\thispagestyle{fancy}
+\section{SPO regulations and qualification}
+By considering the laws that determine whether the SPO of an aircraft is acceptable can help explain why there has been little development in control systems that try to reject gusts. 
+
+ 
+The United States of America's Federal Aviation Authority regulates SPOs in FAR Part 23.181 \cite{far} as follows:
+Any short period oscillation not including combined lateral-directional oscillations occurring between the stalling speed and the maximum allowable speed appropriate to the configuration of the airplane must be heavily damped with the primary controls -
+
+(1) Free; and
+
+(2) In a fixed position.
+\newline
+United Kingdom's Civil Aviation Authority regulates SPOs in a very similar manner and can be found in CAP482 S181. 
+
+
+The quality of handling is largely determined by pilot opinion. Pilot opinion is collected and visualised on "opinion contours" which take the undamped natural frequency and the damping ratio into account. These parameters need to be adjusted until the pilot finds the controls satisfactory. 
+
+
+These parameters (natural frequency and damping ratio) determine whether an aircraft's SPO qualifies and also whether the controls are satisfactory to the pilot. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,center]{conto.png}
+\caption{Sketch illustrating what a pilot opinion contour might look like. The goal is to adjust the damping ratio and the natural frequency to bring the opinion in the 'satisfactory' region.}
+\centering
+\end{figure}
+From SPO approximation \cite{short} the natural frequency and damping ratio can be determined:
+\begin{equation}
+\omega_{n}=\sqrt{\mathring{Z}_{w}\mathring{M}_{q}+\mathring{M}_{w}\mathring{Z}_{q}}
+\end{equation}
+\begin{equation}
+\zeta = \frac{\mathring{M}_{q}+\mathring{Z}_{w}}{\omega_{n}}
+\end{equation}
+
+Therefore, simply by adjusting the aerodynamic derivatives, it is possible to conform to the regulations and to improve the pilot opinions. The regulations do not make the existence of a control system with a SPO dedicated model mandatory. This may explain the lack of development in this field.
+\thispagestyle{fancy}
+\section{Trailing edge flap}
+\thispagestyle{fancy}
+The last section established the need for a mechanism that can control wing lift. Flaps are typically used as high-lift devices deployed in conditions where the airspeed is low. Increased lift is desirable to minimise the distance to take off or to achieve slower and steeper approaches during landing because extending flaps will lower the stall speed of the aircraft. The principle of operation is quite straightforward. Deploying the flap will increase the $C_{L}$ and deflecting it upwards will decrease it. This in turn will change the lift produced as per the lift equation: 
+\begin{equation}
+L=\frac{1}{2} \rho V^{2} SC_{L}
+\end{equation}
+
+
+For a plain flap, the increase in lift can also be understood by realising that the airspeed under the wing will be slowed down when the flap is deflected downwards. Therefore, some of the dynamic pressure will be converted to static pressure increasing the pressure under the wing and consequently the lift. Deflecting the flap upwards will have the  opposite effect: the speed at the top of the of the airfoil will be slowed down which will increase the static pressure here. This increased pressure acts opposite to the direction of positive lift and thus will reduce the size of the lift or it could produce negative lift. 
+
+A plain flap can both increase and decrease lift which will be useful to regulate lift through a gust. 
+
+
+\section{PID controller}
+\thispagestyle{fancy}
+A mechanism has been decided to control the lift at different airspeeds. However, a command signal needs to generated to set the flap angle. A PID controller could do this task. 
+
+
+While a PID controller (or it's variations) is not the only controller in existence, it is by far the most commonly used controller in industrial applications. The reason for it's popularity is most likely because it is easy to implement and gives the user the ability to fine tune the performance of the control system. For example, if the user desires a fast but less robust (allows overshoot) system, he/she can increase the integral gain. 
+
+By adjusting the gains, you can change the rise time, peak time, settling time, percentage overshoot and the steady state error (if applicable). 
+
+A PID output is the sum of the proportional, integral and derivative outputs. The proportional output is proportional to the error. The integral output is proportional to the integral of the error with respect to time. And finally, the derivative output is proportional to the rate of change of error. The following equation describes the output of a PID controller in the time domain. 
+\begin{equation}
+output = K_{p}e(t)+K_{i}\int e(t) dt+K_{d}\frac{de(t)}{dt}
+\end{equation}
+\thispagestyle{fancy}
+Or in the laplace domain:
+\begin{equation}
+\mathcal{L}[output]=K_{p}+\frac{K_{i}}{s}+K_{d}s
+\end{equation}
+The essential theory applicable to this project has now been established. The next step would be designing the instrumentation for a feedback controller. 
+
+
+\chapter{Instrumentation}
+The theory required for the project has now been identified. To commence the project, the first task was to design and build the instrumentation required to measure and record the data. The computer and the programming language determines how the controller will be implemented. The sensing equipment and data processing are also very important factors because the quality of the data relies on them. 
+
+ 
+\thispagestyle{fancy}
+\section{Computer and programming language}
+\thispagestyle{fancy}
+At the moment, there are two major options for an embedded system: Arduino and Raspberry Pi. 
+\newline
+\newline
+The Arduino Mega uses an Atmel ATmega 2560 processor with a clock speed of 16MHz. The program for the Arduino is written in a subset of the C/C++ programming language on a desktop computer and copied to the onboard flash memory over USB typically. The Arduino IDE can be used to compile and write the executable to the flash memory. It also allows for serial communication with the device which is useful for debugging. 
+\newline
+\newline
+The Raspberry Pi 3 has a 4-core 1.2GHz Broadcom BCM2837 64bit CPU running at 1.2 GHz which is much faster than the Arduino Mega. The extra processing power allows the user to use the Raspberry Pi as a full fledged computer. The programs can even be written on the device itself. However, it will be easier to program on a desktop and push the code to the Raspberry Pi over WiFi using the Secure Shell (SSH) protocol. 
+\newline
+\newline
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.05]{rpi.jpg}
+\caption{The Raspberry Pi 3 Model B microcontroller}
+\end{figure}
+The Raspberry Pi also gives the user a choice of programming languages to use unlike the Arduino. Python is most commonly used to code for the Raspberry Pi. However, it would be more suitable to use a compiled language like C/C++ rather than an interpreted language like Python. While C can be difficult and more time consuming than Python to write and debug, it does run faster. The table below \cite{comp} shows the results from a Mandelbrot Set test (a recursive algorithm) for Python 3 and C++ with the g++ compiler. 
+\newline
+\newline
+$\begin{array}{ | l | l | l | l | l | l | l | }
+\hline
+\centering
+	 source & secs & mem & gz & cpu & cpu load \\ \hline
+	 Python 3 & 225.24 & 15736 & 688 & 899.25 & 100\% 100\% 100\% 100\% \\ \hline
+	 C++ g++ & 1.64 & 27636 & 1002 & 6.51 & 100\% 99\% 100\% 99\% \\ \hline
+\end{array}$
+\newline
+\newline
+Speed is of the essence in this project since the objective is to minimise the rise times and settling times. Thus C++ executed on the Raspberry Pi 3 is the most suitable option.  
+\section{Pressure sensors}
+This is one of the most important design decision for this project because they determine the ability to detect a change in airflow and lift (process variable) which is essential for a closed-loop feedback system.
+
+There are a variety of sensors to choose from. There are absolute pressure sensors that simply measure the gauge or absolute pressure of air at a single point. Then there are pressure sensors that measure differential pressure. These have two ports and the sensor will measure the difference in pressure the two ports are subjected to. 
+
+To calculate the lift on the wing, the pressure distribution along the top and the bottom of the wing will be measured. A single differential pressure sensor can tell the difference in pressure at the top and bottom of a wing at a certain chord position. For the same information, two absolute pressure sensors will be required. Furthermore, the airspeed in the wind tunnel will need to be measured. Using a differential sensor, one port can be subjected to the total/stagnation pressure from a pitot probe, and the second port will be subjected to the static pressure. The sensor will instantly give the difference between the two pressures which is the dynamic pressure. The airspeed can then be easily calculated using Bernoulli's principle:
+\thispagestyle{fancy} 
+\begin{equation}
+V=\sqrt{\frac{2(p_{0}-p)}{\rho}}
+\end{equation}
+Thus, for convenience a differential type sensor will be used. TE connectivity makes a sensor called MS4524DO in both differential and absolute types. There is also the option to choose between the I2C and SPI data transmission buses. 
+\thispagestyle{fancy} 
+There are merits to using both buses. The I2C bus is very common and many devices use it to communicate with a 'master'. The bus typically runs at 100kbps but can reach 400kbps on fast mode. It uses a data line (SDA) and a clock line (SCL) and is therefore sometimes called 'two wire interface' (TWI). 
+
+SPI on the other hand runs much faster at around 10Mbps. The interface requires a clock line (SCLK), a MISO line (Master in Slave out), sometimes a MOSI line (Master out Slave in) and a slave select pin. 
+
+The slave select pin allows communication with a specific device on the line. In this case, four pressure sensors are used but only one sensor can be communicated with at once. So data from consecutive sensors will be acquired sequentially. 
+
+I2C relies on the device address. Each I2C device is given a specific address which needs to be provided before data transmission can happen. All available I2C MS4525DO sensors have the address 0x28 which creates a conflict. The I2C bus will not know which sensor to communicate with because they're all at the same address. A 'switching' mechanism will be needed to make this option viable.
+
+The most suitable bus for this application is obviously SPI. However, there is a severe lack of availability of these sensors at a reasonable price. A compromise in speed had to be made by choosing the I2C sensor which are widely available. However, for my purpose the speed exceeds Nyquist criterion (test described in section 3.4) so the lower bus speed will not be an issue.
+
+\section{Electronic setup}
+\thispagestyle{fancy}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.15]{elec.jpg}
+\caption{Photo of the breadboard with the multiplexer and the pressure sensors}
+\centering
+\end{figure}
+As mentioned above, the I2C pressure sensors all have the same address so are bound to create a conflict unless a switching mechanism is constructed. An I2C multiplexer called TCA9546a which is an I2C device itself was used. 
+
+It has four channels thus can handle four I2C devices. To select a channel, a number is sent to the I2C address 0x77 (where the multiplexer is located). 
+\begin{table}[H]
+\label{my-label}
+\begin{tabular}{lll}
+Channel 0 & 0x01     \\
+Channel 1 & 0x02      \\
+Channel 2 & 0x04		\\
+Channel 3 & 0x08
+\end{tabular}
+\end{table}
+\thispagestyle{fancy}
+\begin{sidewaysfigure}
+\centering
+\includegraphics[scale=1]{ip.png}
+\caption{Fritzing diagram illustrating the electronic set up. Note that the servo is powered externally via a 6V DC wall adapter, but the ground of the external power source and the Raspberry Pi power source are tied together because the servo and the Raspberry Pi need a common ground.}
+\centering
+\end{sidewaysfigure}
+\thispagestyle{fancy}
+
+
+Once the channel is selected, I2C communication between the Raspberry Pi and the selected pressure sensor can begin. Figure 3.3 on the next page illustrates the connection between the multiplexer and the pressure sensors. 
+
+
+
+\newpage
+\section{Sensor calibration}
+\thispagestyle{fancy} 
+The pressure sensors need to be calibrated against known values of pressures before they can be used. To achieve this, principles of a manometer were used. The difference in pressure heads at the two ends of the tube is proportional to the difference in pressure.
+\begin{equation}
+\Delta P = \rho_{w} g \Delta h
+\end{equation}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth,center]{mano.png}
+\caption{Diagram illustrating principle of manometer and how the fluid level changes when the ends are subjected to different pressures \cite{jd}}
+\centering
+\end{figure}
+Height differences of -10cm,-5cm,0cm,5cm and 10cm were created by raising the level of water in a PVC tube. Both ends were connected to the ports of the sensors to give pressure differentials of $0 Pa$, $\pm 490.5 Pa$ and $\pm 981 Pa$. The pressure sensors output the number of decimal counts. Results were collected for each sensor and are plotted below. These allowed me to convert the sensor output to pressure in pascals. The test results are shown in the figure 3.5 overleaf. 
+\begin{figure}[H]
+\centering
+\subfloat{%
+\resizebox*{8cm}{!}{\includegraphics{s1.png}}}\hspace{5pt}
+\subfloat{%
+\resizebox*{8cm}{!}{\includegraphics{s2.png}}}\hspace{5pt}
+\subfloat{%
+\resizebox*{8cm}{!}{\includegraphics{s3.png}}}\hspace{5pt}
+\subfloat{%
+\resizebox*{8cm}{!}{\includegraphics{s4.png}}}\hspace{5pt}
+\caption{Graphs showing the relation between the decimal counts as output by the sensors and pressure on the ports in pascals exerted by a water column.} \label{fig:budgets1}
+\end{figure}
+\newpage
+\section{Data filtering}
+\thispagestyle{fancy}
+The aim of this section is to filter the data that comes from the pressure sensor so that the noise of values fed into the controller is minimised. The speed of sampling also needs to be considered especially since four pressure sensors are sharing a single I2C line. There are many choices for data filters. 
+
+A median filter takes a certain number of samples and outputs the median. This is useful when a sensor is known to output extreme values frequently. A common application of this filter is in ultrasonic range finders which work by sending out an ultrasonic pulse and receiving the reflection. The time between the pulse being sent and received is measured. The speed of sound at sea level is a constant. Thus, the distance can be calculated. Often, a sent pulse is not received and detected by the sensor which causes a timeout. In such an event, the sensor output can be extreme. A median filter however will completely disregard this value. In this project, the sensor is highly unlikely to output nonsensical values. Therefore, the use of median filter is not appropriate. 
+
+A simple average filter on the other hand may be much more useful. The operation is quite simple. A certain number of samples is taken and averaged. The intensity of noise is minimised by increasing the window (number of samples taken). 
+
+According to the Nyquist-Shannon theorem\cite{shan}, "\textit{If a function x(t) only contains frequencies higher than B hertz, it is completely determined by a series of points 1/(2B) seconds apart}". In other words, the sampling frequency must be more than twice the SPO frequency. As mentioned earlier, SPOs occur at around 2Hz. Therefore, the sampling frequency must be at least more than 4Hz. 
+
+The sample time was measured as a function of the window size and the results are plotted below. 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{samp.png}
+\caption{Window size vs sampling frequency. An inversely proportional relation is apparent.}
+\centering
+\end{figure}
+
+It seems that the sampling frequency is inversely proportional to the number of samples. This was confirmed by taking the log of both the frequency and the number of samples. 
+
+\begin{equation}
+N\propto\frac{1}{f}
+\end{equation}
+\begin{equation}
+N=\frac{k}{f}
+\end{equation}
+\begin{equation}
+\log(N)=\log(\frac{k}{f})
+\end{equation}
+\begin{equation}
+\log(N)=\log(k)-\log(f)
+\end{equation}
+\newline
+Plotting log(N) against log(f) gave the following result which proved the inversely proportional relation.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{log.png}
+\caption{Log of N vs log of frequency. The linearity proves the inversely proportional relation. Also note that y-intercept is log of k.}
+\centering
+\end{figure}
+\thispagestyle{fancy}
+The graphing software calculated the y-intercept to be 2.525. This is also equal to log(k). Therefore k can be calculated to be $10^{2.525}$ which is 334.97. 
+
+Now the window size at f=4Hz can be calculated. To comply with the Nyquist-Shannon theorem, the maximum window size can be 84. There needs to be a large margin to keep the system responsive which is essential to suppress a fast oscillation. Window size of 50 was chosen to ensure the system can keep up with the oscillation. 
+\chapter{Physical design}
+This chapter will focus on the physical design of the wing that will be placed in the wind tunnel. The mechanism to create gusts in the wind tunnel will also be outlined. 
+\section{Design of Main Wing}
+\thispagestyle{fancy}
+To calculate the lift produced by the wing, local static pressure readings from several points along the top and the bottom of the wing are required. The easiest way to do this is by creating pressure tappings at specified points along the wing surface.
+\newline
+\newline
+Firstly, the NACA2412 aerofoil was chosen for the wing. This decision was not entirely arbitrary. The moderate thickness of $12\%$ chord length and a camber of $2 \%$ at $40\%$ chord length. This increases the L/D ratio and is good for low speed flight which is the regime most UAVs fly in.  
+\newline
+\newline
+The wing has a chord of 0.25m and a span of 0.35m. The trailing edge flap begins at x/c of 0.75. The pressure tappings are at x/c of 0.2, 0.4 and 0.6. There are probably better locations for these pressure tappings which will yield better lift estimates. However, finding the optimum locations is a large task and can be a separate project. For my project, the accuracy of the lift estimate is not highly important. The aim is to produce a controller that responds well to a change in airflow. Therefore, a lift estimator that can give values within 10$\%$ of the actual lift on average will be acceptable to test the response of the control system. The lift estimator is described in chapter 6. 
+\begin{figure}[H]
+\includegraphics[width=0.7\textwidth,center]{wingmid.png}
+\caption{Midsection of the wing with the internal tubing highlighted. The trailing edge flap is not included.}
+\end{figure}
+\newpage
+\section{Gust Generator}
+\thispagestyle{fancy}
+
+To simulate an impulsive change in airspeed, a "gust generator" will be placed upstream from the wing. This consists of two NACA0015 airfoils with chord of 0.25 m and 0.5m span coupled to servos. The diagram below illustrates the configuration.
+
+As the flaps move closer together, the airspeed of the flow between them will increase because of the decreasing cross-sectional area. This is simply due to conservation of mass. 
+\begin{equation}
+\dot{m} = \rho V A
+\end{equation}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.1]{gust.jpg}
+\caption{Gust generator in the wind tunnel}
+\centering
+\end{figure}
+A detailed description of the entire setup and manufacturing processes used can be found in Appendix A.
+\newpage
+\thispagestyle{fancy}
+\chapter{Plant dynamics and Simulink modelling}
+In this section, the dynamics of the plant will be estimated and analysed in MATLAB/Simulink to get initial estimates for the PID gains. There are two blocks in the plant for which a transfer function is needed. The first section will investigate how an input signal (PWM) translates to an angular displacement in the servo. Then, how the angle changes the $C_{L}$ and consequently the lift production will need to be understood. Firstly, an actuator needs to be chosen to move the flap. 
+\section{Actuator}
+\thispagestyle{fancy}
+The SPO is a short lived and fast changing phenomenon. It is important to have a mechanism that does not create too much lag between the generation of the control signal and the actuation completing. A significant lag can even reinforce the oscillation and create dynamic instability. In this case the system response would have to be slowed down to stabilise the system. This will increase the settling time and would be a great compromise. A BMS-631 servo coupled to the trailing edge flap of the wing was used. The manufacturer states that it can turn 60$^{\circ}$ in 0.10 secs at 5V input voltage and 0.08 secs at 6V. This is
+extremely fast compared to other servos on the market and is the most suitable device for this project. The manufacturer does not provide information on exactly how the angular displacement changes with time. The speed mentioned above is not sufficient information to give an accurate representation of the servo dynamics which many sources \cite{etkin} claim is a first order function. The performance of the servo will be measured so that a close approximation of the plant can be analysed before testing commences. 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.08]{servo.jpg}
+\caption{The BMS-631 servo used to deflect the flap}
+\centering
+\end{figure}
+\section{Dynamics of the servo}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.1]{rot.jpg}
+\caption{YUMO E6B2-CWZ3E rotary encoder to record the angular position of servo}
+\centering
+\end{figure}
+To measure the performance of the servo, a rotary encoder was used. This device converts the angular position into digital signals. The typical quadrature rotary encoders work using two signals: A and B. These are 90 degrees out-of-phase and operate on two logic levels. For clockwise rotation the A and B transition occurs in 4 phases: 
+
+\begin{table}[h]
+\centering
+\caption{Phases of quadrature rotary encoders}
+\thispagestyle{fancy}
+\label{my-label}
+\begin{tabular}{lll}
+        & A & B \\
+Phase 1 & 0 & 0 \\
+Phase 2 & 0 & 1 \\
+Phase 3 & 1 & 1 \\
+Phase 4 & 1 & 0
+\end{tabular}
+\end{table}
+Signals produced during anticlockwise rotation occur in exactly the opposite sequence: signal A leads signal B. 
+
+Each phase change increments a counter. Each counter increment corresponds to a very small angular displacement. Thus, this device will be helpful to understand the dynamics of the servo. 
+
+The rotary encoder was coupled to the servo and the step response was monitored. The highest point was assumed to be 120 degrees because the manufacturer claims that 120 degrees is the throw of the servo. The following graph shows how the angle changes with time. The initial part of the graph is linear which implies  that the servo has clearly reached the maximum speed it can achieve because the angular velocity is fairly constant. Right before the servo angle converges to the final value, the first order dynamics of the servo are visible. 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{iodat.png}
+\caption{Step response of servo to an input of 1100 at around 0.01s.}
+\centering
+\end{figure}
+\thispagestyle{fancy}
+If that portion of the graph isolated and analysed how it converges, the time constant can be found assuming that the servo follows first order dynamics (simple lag) \cite{etkin}. 
+\thispagestyle{fancy}
+The following expression is the transfer function for a first order system. 
+\begin{equation}
+\frac{K}{Ts+1}
+\end{equation}
+\newpage
+\thispagestyle{fancy}
+When subjected to a step input $1/s$, the following transfer function is obtained.
+\begin{equation}
+\theta(s) = \frac{1100K}{s(Ts+1)}
+\end{equation}
+
+\thispagestyle{fancy}
+This can be decompose into partial fractions.
+\begin{equation}
+\theta(s)=\frac{1100K}{s}-\frac{1100KT}{Ts+1}
+\end{equation}
+
+
+Then an inverse Laplace transform is applied to find the transfer function in the time domain. 
+\begin{equation}
+\mathcal{L}^{-1}\left(\frac{1100K}{s(Ts+1)}\right)=1100K(1-e^{\frac{t}{T}})
+\end{equation}
+
+According to the data collected, the servo reaches to 94.799$\%$ within 0.195s. So the time constant can be found. 
+
+\begin{equation}
+(1-e^{-0.195/T})=0.94799
+\end{equation}
+
+$$T=0.06596 s$$
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{servosim.png}
+\caption{Servo approximation output in Simulink to a step input to displace servo from 0 to 120 deg.}
+\centering
+\end{figure}
+The maximum speed can be found by taking the gradient at the straight line section of the graph.
+\thispagestyle{fancy}
+\begin{equation}
+\dot{\theta}_{MAX}=0.599^{\circ}ms^{-1}
+\end{equation}
+Finally, the gain is simply the ratio between the output and the input which is 120/1100. 
+\begin{equation}
+K=0.10909
+\end{equation}
+This model of the servo gives a very close approximation of the real servo. A Simulink model of the servo was made which incorporates the first order transfer function and a rate limiter set to 599. When a step input of 1100 is applied to the system, the output (figure 5.4) matches the graph of the measured data as shown in figure 5.3.  
+
+
+\section{Dynamics of the flap}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{dvcl.png}
+\caption{Flap deflection vs Coefficient of Lift. The solid line is a cubic function.}
+\centering
+\end{figure}
+\thispagestyle{fancy}
+It is now known how the angular displacement of the flap changes with time. There is now a need to know how that change in angle affects the coefficient of lift and consequently the lift. 
+
+To do this, Xfoil was used to see how the $C_{L}$ changes with deflection of the flap.
+
+The graphing software shows that a cubic function is a good fit for the data. However, a cubic function was not used to approximate the flap dynamics because at the maximum/minimum point, it is not clear which direction the flap must deflect to increase/decrease the lift coefficient. 
+
+A better approximation is a linear function with saturation on both ends because it is monotonic. There is no ambiguity in which way the flap needs to deflect to increase/decrease $C_{L}$. 
+
+
+\begin{equation}
+C_{L}(\delta)=0.04257\delta+0.6665
+\end{equation}
+\begin{equation}
+-1.35\leq C_{L}\leq2.08
+\end{equation}
+
+
+\section{Simulink first principles modelling}
+\thispagestyle{fancy}
+The last two sections identified the dynamics of the plant. It is now possible to import the models developed into Simulink and use the PID tuner app in MATLAB to tune controller for output disturbance rejection (impulse in output). 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{simu.png}
+\caption{Simulink model. Note that the PID output signal is converted to a PWM value before entering the plant.}
+\centering
+\end{figure}
+The image below is a screenshot of the Simulink model. The reference signal is a step signal that has a magnitude of 3.2 from 0s. The error signal is converted to a command signal or a 'control input' which ranges from -1 to 1. -1 corresponds to the flap being all the way up (-60 deg) which requires a PWM input of 0. On the other hand, for deflecting the flap all the way down (60 deg) a PWM value of 1100 is sent. 
+
+Therefore, to convert the controller output to a PWM output, a gain of 550 is applied and a constant 550 is added. 
+
+The PWM signal is consequently fed into the plant. 
+\thispagestyle{fancy}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.40]{plants.png}
+\caption{Simulink model of the plant. The control signal enters as a PWM value and the output of the whole plant is the lift (process variable)}
+\centering
+\end{figure}
+\thispagestyle{fancy} 
+In figure 5.7, on the far left the controller generated PWM signal comes in. This goes through a transfer function and a rate limiter as outlined in section 5.2. The output is the flap deflection angle. This signal then goes through a first order polynomial (refer to eq 5.8 and 5.9). The output is the coefficient of lift. This can be converted to lift by applying a gain of 6.615. 
+\begin{equation}
+L=\frac{1}{2}\rho V^{2}SC_{L} = \frac{1}{2} \cdot 1.225 \cdot 12^{2} \cdot 0.30 \cdot 0.25 \cdot C_{L} = 6.615C_{L}
+\end{equation}
+
+This completes the model that was used for tuning the controller. To begin testing, the software will calculate the optimum PID gains.
+
+ 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.32]{pidt.png}
+\caption{Tuner app with the performance parameters and the optimised gains in the bottom right}
+\centering
+\end{figure}
+As mentioned earlier, the PID tuner app in MATLAB was used to determine these gains. 
+
+The optimisation process was started by tracking the output disturbance rejection plot (gust) and then adjusting the response time until it was under 0.13s. The percentage overshoot was kept under 10$\%$ by adjusting the robustness of the system. The optimal gains found are shown in the table below. 
+\begin{table}[H]
+\centering
+\caption{Matlab predicted PID gains}
+\label{my-label}
+\begin{tabular}{ll}
+$K_{p}$ & 0.14324     \\
+$K_{i}$ & 2.0572      \\
+$K_{d}$ & -0.00047687
+\end{tabular}
+\end{table}
+\thispagestyle{fancy} 
+\chapter{Lift estimation and implementation}
+\section{Lift Estimation}
+\thispagestyle{fancy}
+In chapter 3, pressure in pascals was obtained from the pressure sensors. This section will deal with using the pressure data from the sensors to calculate the lift produced by the wing. A good lift estimate is essential for feedback. 
+\newline
+\newline
+Lift and drag are both aerodynamic forces that are a result of an unequal pressure (thus force) distribution along the surface of the wing. If the force due to pressure normal to the direction of the free stream is resolved, the result would be the lift on the wing. Similarly, the component of pressure forces parallel to the free stream is resolved to find the drag. 
+\begin{equation}
+\overrightarrow{F_{N}}=\oint{p{\hat{\textbf{n}}}}dS
+\end{equation}
+\begin{equation}
+L=\overrightarrow{F_{N}}\cdot\hat{\textbf{n}}\cos\alpha
+\end{equation}
+\begin{equation}
+D=\overrightarrow{F_{N}}\cdot\hat{\textbf{n}}\sin\alpha
+\end{equation}
+These equations cannot be directly applied to measured data because there are pressure readings over finite discrete points along the wing surface. But if the wing has a large number of pressure tappings, the lift can be estimated by just summing the product of the individual pressure readings and the distance between consecutive tappings. 
+\begin{equation}
+L=\sum_{i=1}^{n}{(p_{li}-p_{ui})}\delta A
+\end{equation}
+Linear interpolation between consecutive points can further improve the estimation.
+\newline
+\newline 
+\thispagestyle{fancy}
+The size of the wing in this project is unfortunately constrained due to the dimensions of the wind tunnel. Fitting a large number of pressure tappings within the wing was therefore not possible. A large number of pressure tappings also require a large number of pressure sensors which is not economically viable. So the lift estimation is expected to be a very rough approximation but the error should be under $10\%$. An empirical approach was used instead for this problem. 
+\newline
+\newline
+It can be assumed that the lift is estimated by the following equation:
+\begin{equation}
+L=\sum_{i=1}^{3}{w_{i}(p_{li}-p_{ui})}
+\end{equation}
+$w_{1}$,$w_{2}$ and$w_{3}$ are weights given to the differential pressure readings from each location on the wing. These weights will be determined using Xfoil and Excel. 
+\thispagestyle{fancy}
+Xfoil was used to sweep through $\alpha$ between -5 and 10 and $\delta$ between $-60^{\circ}$ and $60^{\circ}$. The coefficient of pressure at $C_{p}$ at the top and bottom of the wing at x/c values of the pressure tappings will be recorded. These can be converted to pressure.
+\begin{equation}
+p=p_{\infty}+\frac{1}{2}\rho V_{\infty}^{2} C_{p}
+\end{equation}
+
+The pressure values should roughly be what the pressure sensors will actually measure. The $C_{L}$ is also recorded for each test. This can be used to find the actual lift on the wing. 
+\newline
+\newline
+The results were all entered into an excel spreadsheet. A column for the estimated lift took the xfoil predicted pressure at each tapping, multiplied it by the corresponding weight and added them. The square of the error was calculated by taking the difference between the actual lift and the estimated lift and squaring the resulting value. 
+\newline
+\newline
+Excel has a solver function which is carries out an optimisation routine. The sum of the squared error values for all tests (across all angles of attacks and flap deflections) was minimised by allowing the solver to adjust the weights. 
+\thispagestyle{fancy}
+The following values were determined by excel solver. The average percentage error was about $7.3\%$.
+\begin{table}[h]
+\label{my-label}
+\begin{tabular}{ll}
+$w_{1}$ & 0.021042611     \\
+$w_{2}$ & -0.022570784      \\
+$w_{3}$ & 0.025133973
+\end{tabular}
+\end{table}
+\newline
+\newline
+Considering a wide range of flap deflection angles and angle-of-attack when estimating the weightings gave me a lift estimator that works fairly well for different operating conditions the system is likely to see during testing.   
+The full Excel spreadsheet can be found in the appendix. 
+\newpage
+\section{Implementing the controller}
+\thispagestyle{fancy}
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{flow.png}
+  \end{center}
+  \caption{Flowchart showing the sequence of code blocks}
+\end{wrapfigure}
+Before testing can begin, the code has to be written that will collect the data from the sensors and use it to calculate the lift. It should then control the flap angle in accordance to the controller that was designed in the preceding chapter. 
+
+Figure 6.1 shows the sequence of tasks that need to be carried out when the code is compiled and executed. The 'main' function in my code ran an iterative loop that called different functions, each with a dedicated purpose. Roughly each block in figure 6.1 had its own function.  The main function was also used to set up the I2C devices and the servo. Both the I2C devices and the servo were implemented using the wiringPi and wiringPiI2C libraries both of which are made publicly available by Gordon\cite{gordon} under GNU LGPLv3 license. 
+\newline
+\newline
+\newline
+The iterative loop mentioned above was done via an endless while loop as given below. The 'clockgettime' function was called at the beginning and the end of the loop to calculate the loop/sample time which is useful for the PID calculation and also to understand whether the program was running fast enough to keep up with the oscillation. 
+\begin{lstlisting}[style=CStyle]
+	while(1){
+		clock_gettime(CLOCK_REALTIME, &gettime_now);
+		start_time = gettime_now.tv_nsec;
+		counter+=1; 
+		daq(fd, fd2); //acquire data from sensors and filter them
+		estimateLift(); //estimate lift
+		control(); //run a PID iteration
+		printdata(); //record data and print to console
+		clock_gettime(CLOCK_REALTIME, &gettime_now);
+		if(gettime_now.tv_nsec - start_time>0){
+			dt = (gettime_now.tv_nsec - start_time)/1000000000;
+		}
+	}
+\end{lstlisting}
+\thispagestyle{fancy}
+The 'control' function was responsible for the PID calculations. There is a high probability of integral wind-up during initialisation and gust tests because the error temporarily will be very high. The prolonged saturation caused can lead to the integral error accumulating to a very large value. This can cause the output of the controller to stay saturated long after the cause of the error has gone away. 
+\newline
+\newline
+Anti-windup protection can help avoid this. The output of the controller is clamped to the maximum/minimum value and nothing is added to the integral error term until the output is within the acceptable range. The code can be found in its entirety in appendix E. 
+\thispagestyle{fancy}
+\chapter{Wind tunnel testing}
+\thispagestyle{fancy}
+All the tools, equipment and resources required for the project have been gathered and assembled as discussed in the preceding chapters. This chapter will outline how the testing was carried out in chronological order. As with most things, the first iteration of any design is likely to be flawed. But this chapter will show how the system was improved and optimised the in each successive iteration.   
+\section{Measuring wind tunnel airspeed}
+The wind tunnel is operated using a control panel which displayed a frequency. This frequency is proportional to the airspeed in the wind tunnel. However, the exact relation between this frequency and the airspeed was unknown. Thus, the speed of the wind tunnel had to be measured at different frequencies to make sure that the airspeed was kept at 12 meters per second since this was assumed when designing the lift estimator.
+
+Using a pitot probe and one of the differential pressure sensors a clear linear relation between the frequency and the airspeed could be seen. The following figure shows this relation. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,center]{wtu.png}
+\caption{Relation between the frequency and the airspeed in the wind tunnel}
+\centering
+\end{figure}
+
+To keep the test conditions constant, all tests will be run  at a constant speed of $12ms^{-1}$ (except the airspeed sweep test). The angle of attack will be kept at $5^{\circ}$ which according to the lift estimator should give me a lift of 4.6 N. The setpoint will be at 3.2N. 
+
+\section{First test}
+\thispagestyle{fancy}
+It was logical to test the control system at steady conditions before moving on to the gust tests. The wind tunnel was set to $12ms^{-1}$. The controller should be able to hold the lift at roughly 3.2N. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth,left]{osc.png}
+\caption{The controller was unable to converge the lift to the setpoint. Controller is tuned too aggressively.}
+\centering
+\end{figure}
+
+
+The above result was expected. The controller was unable to stabilise the system and oscillated violently. As you can see from figure 7.2, the flap angle repeatedly saturated at $60^{\circ}$ (flap down position). This was expected because the controller was tuned very aggressively. There is also a considerable amount of noise in the data to which the controller was hypersensitive. One solution to this issue would be to increase the averaging window size to reduce noise. However, this would mean that the sample rate decreases below the Nyquist frequency. It may also mask the gust to the point where the impulse will go undetected. 
+\thispagestyle{fancy}
+
+In order to fix the controller, a different approach was used. By considering the system response to a specific input, the plant can be approximated and the appropriate gains can be found. A heuristic method called Cohen and Coon\cite{cohen} tuning helped improve the system.
+\newpage  
+\section{Cohen and Coon tuning}
+\thispagestyle{fancy}
+This method involves using the plant in open loop. A step input is given to the system and the output is monitored. A step input from -60 degrees to 60 degrees was applied to the system and the figure below shows the response. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth,left]{fr.png}
+\caption{Step response. The process variable (lift) changes as the flap moves from -60 deg to 60 deg.}
+\centering
+\end{figure}
+The process begins by identifying when the step input was initiated($t_{0}$). From the data, is found that $t_{0}=2.577s$.
+
+The half-way point $t_{2}$(when the lift is halfway between the initial value and the final value) and the time when 63.2$\%$ of the value between the initial and final lift occurs ($t_{3}$) is also found.  $t_{2}=2.771s$ and $t_{3} = 2.799s$.
+The end of deadtime can be calculated ($t_{1}$). This is the time when the process variable (lift) starts rising. 
+\begin{equation}
+t_{1}=\frac{t_{2}-ln(2)t_{3}}{1-ln(2)}=2.708s
+\end{equation}
+$\tau$ is the time between the end of deadtime and the 63.2$\%$ point ($t_{3}$). 
+\begin{equation}
+\tau=t_{3}-t_{1}-0.091s
+\end{equation}
+$\tau_{del}$ is the duration between the step input initiation and the end of deadtime. 
+\begin{equation}
+\tau_{del}=t_{1}-t_{0}=0.13127s
+\end{equation}
+K is the ratio between the final and the initial value which is roughly 6/2=3. The last value needed to calculate the gains is $r$: 
+\begin{equation}
+r=\frac{\tau_{del}}{\tau}
+\end{equation}
+When all of the above parameters have been calculated, the gains can be calculated. 
+\begin{equation}
+K_{p}=\frac{1}{Kr}\left(\frac{4}{3}+\frac{r}{4}\right)=0.391
+\end{equation}
+\begin{equation}
+t_{i}=\tau_{del}\frac{32+6r}{13+8r}
+\end{equation}
+\begin{equation}
+K_{i}=\frac{K_{p}}{t_{i}}=1.7990
+\end{equation}
+\begin{equation}
+t_{d}=\tau_{del}\frac{4}{11+2r}
+\end{equation}
+\begin{equation}
+K_{d}=K_{p}t_{d}=0.0148
+\end{equation}
+\thispagestyle{fancy}
+Using these values yielded a much improved result albeit not perfect.
+
+\section{Airspeed Sweep test}
+\thispagestyle{fancy}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.1\textwidth,left]{sio.png}
+\caption{Self-induced oscillations were noticed with the Cohen and Coon tuned controller. However, steady angles were also observed at steady conditions (around the 40s mark for instance).}
+\centering
+\end{figure}
+
+
+This test was able to verify that the control system attempts to correct the lift when there is a change in airflow and is able to converge to a value when the conditions are held steady. By changing the airspeed in the wind tunnel, the controller should change the flap setting in order to maintain the lift. Eventually, a steady state flap angle should be observable. During high speeds, the flap should be at a relatively high angle to avoid excessive lift. Similarly at low speeds, the lift will be kept at the setpoint by a relatively low flap deflection angle. This test is different to gust tests because the airspeed changes more gradually than in a gust (which is characterised by an impulse in airspeed). 
+
+
+Figure 7.4 shows the result from the airspeed sweep test. It shows that the controller is certainly responding to changing airspeeds and on averages holds the lift at 3.2N. Discrete sections are observable where the flap angle is roughly constant such as between 40s and 50s. During these times, the speed in the wind tunnel has stabilised at the setpoint. However, it is also inducing a few oscillations by itself. A major oscillation is visible at around 75s. This was again expected because the Cohen and Coon tuning method is used for fast response. This means that the controller is still a little too aggressive. 
+
+The proportional gain had to be reduced to 0.02 to remove all self-induced oscillations. The integral and derivative gains were kept unchanged. 
+
+The airspeed sweep test was repeated with the more robust controller and the results can be seen in figure 7.5 below.
+\thispagestyle{fancy}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth,left]{sweep.png}
+\caption{Airspeed sweep test. Note the steady states achieved by controller at different airspeeds with small overshoots. Compare this with the earlier iteration of the controller in figure 7.4}
+\centering
+\end{figure}
+
+It can be seen that the controller is far less jittery than it was before in figure 7.4. It also clearly shows the controller's ability to converge to a certain value. The lift is held steady at 14 meters per second airspeed when the flap is at roughly -20 degrees (seen between 50s and 70s). As the wind tunnel airspeed ramps up, it can be seen the controller manages to keep the lift fairly constant. The only exception is when the system is saturated. This is seen when the wind tunnel is off or ramping up to $14ms^{-1}$ (between 0s and 40s). The flap is fully down while the speed is not high enough to produce the setpoint lift. The opposite situation is also observed. At $18ms^{-1}$ (between 100s and 120s), the speed is too high. Even when the flap is saturated at $-60^{\circ}$, the lift cannot be reduced to the setpoint. 
+
+The test shows that the control system works very well in steady conditions as long as the actuator is not saturated. 
+
+\section{Gust Response}
+\thispagestyle{fancy}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth,left]{grnc.png}
+\caption{Impulse in lift as a result of the gust. Note the nominal lift is at 4.6N. This agrees with Xfoil.}
+\end{figure}
+The airspeed sweep test confirmed that the control system works in normal conditions. In this test, the controller will be tested through an impulse. The gust generator will be used to produce a large and a short lived drop in airspeed and the lift. To achieve this, the gust flaps were held steady at 10 degrees angle of attack towards each other. Then the flaps were suddenly deflected away from each other at 30 degrees. This caused a drop in airspeed and the lift. 
+\newline
+\newline
+To get an idea of how well the system performs, the lift through a gust was measured with the controller disabled. A definitive drop in lift was observed.   
+\newline
+\newline
+\thispagestyle{fancy} 
+Figure 7.6 above shows the lift on the wing changes through a gust when the controller is disabled and the trailing edge flap is set to 0 degrees. As a side note, this test also shows that the lift estimator corroborates with Xfoil predictions (see Appendix C). 
+\newline
+\newline
+\newpage
+The controller was enabled and the same test was repeated. Figure 7.7 below shows the graph of the test. 
+\newline
+\newline
+\thispagestyle{fancy}
+The gust was initiated at roughly 27.5s and is clearly visible as a great drop in lift. This is counteracted by the controller's attempt to increase lift by increasing the flap deflection angle by over 30 degrees. The lift production returns very quickly to the original value which confirms that the control system works well. The lift crosses 3.2N roughly 0.2s after the gust but it is difficult to identify the settling time because of the noisy data. However, the relatively quick recovery of the loss of lift makes this project a resounding success. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth,left]{gr.png}
+\caption{Lift and flap angle vs time. Note the big drop in lift and the consequent increase in flap angle in an attempt to recover the lost lift.}
+\centering
+\end{figure}
+\newpage
+\section{Discussion of results}
+\thispagestyle{fancy}
+This section compares the results obtained with the aims and objectives that were set out at the beginning of the project. 
+\newline
+\newline
+First and foremost, the aim of the project was to design a control system than can suppress the rapid change in lift production seen by the wing through a gust. The study compared how the lift changed when the flap wasn't controlled to when it was controlled and the test confirms that this objective was fulfilled. The amplitude of the oscillation as well as the time within which the lift was returned to the nominal values was reduced. 
+\newline
+\newline
+The system was also aimed to be good at holding the lift at steady state conditions. This objective was definitely met as shown by the airspeed sweep test. As the airspeed was changed, the flap settled at a new value but any deviation from the setpoint lift was negligible. 
+\newline
+\newline
+Thirdly, a qualitative target was set. The settling time of the process variable should be about 0.13s. Although the exact settling time cannot be identified from the noisy data, the system crosses 3.2N for the first time 0.2s after the gust. Therefore, the settling time is definitely more than 0.13s. The control system is still more robust than what has been achieved by similar systems thus far. It was noticed that aggressively tuned controller will be very sensitive to noise. Specifically the derivative gain will react quite a lot to noise since the rate of change of the error will be quite high throughout. Therefore, this was always the smallest gain among the three.  
+\newline
+\newline
+The amplitude of the oscillation on the wing should have been lower with controller present than without. With no control, the lift dropped from 4.5N to 2.5N which gives a $\Delta L$ of 2N. 
+\newline
+\newline
+With control, the lift dropped from 3.2N to 1.5N. This gives a $\Delta L$ of 1.7N. In this regard, the controller did slightly better. 
+\newline
+\newline
+With all the tests it can also be assumed that in a positive gust, the controller will behave similarly because lift change is roughly linear with flap deflection (see section 5.3). Positive gusts were created in the wind tunnel by the flaps deflecting inwards. However, the lift became a lot more noisier and the controller found it impossible to control it. It was believed to be the effect of a turbulent wake from the gust generator which the wing would be in the middle of.  
+\newline
+\newline
+The last aim was to design the control system from first principles and then validate it during testing. It is quite clear that the model is flawed because the estimated PID gains and manually tuned PID gains are vastly different. But the reasons why the Simulink model did not work are also quite clear and discussed in the further recommendations chapter. So the study can give advice on how to get a better approximation of the plant. 
+\newpage
+\chapter{Conclusion}
+A new approach to control the flight trajectory was investigated in this study with an emphasis on gusts and short period oscillations. Using pressure sensors to control lift was theoretically proven to have several benefits over simply correcting the flight attitude. 
+\newline
+\newline
+A simulation model was made to get first estimates for controller parameters. Consequently, the controller was tested in a wind tunnel. 
+\newline
+\newline
+The tests showed that the Simulink model can be improved and this will be discussed in the next section. Cohen and Coon tuning and manual adjustments improved the performance of the system. 
+\newline
+\newline
+The tuned controller performed very well in gradually changing airspeeds as shown in the airspeed sweep test. 
+\newline
+\newline
+It also performed very well in gusts. This can be useful for mitigating short period oscillations or gusts in general.   
+\section{Further recommendations}
+\thispagestyle{fancy} 
+The successful outcome of this project shows that it might be worthwhile to carry out further work in order to implement this on a real flight and test the controller through a real SPO. 
+\newline
+\newline
+After completing this project, it is clear to me that several things can be done in the future to obtain a faster and more robust system. 
+\newline
+\newline
+Firstly, it's worth understanding why the self-induced oscillations occurred after Cohen and Coon tuning. The system is certainly stable because the oscillations do not increase and the controller always manages to remove them. Ideally, after a steady state is achieved there would be no reason for the controller action to oscillate. This phenomenon is most likely excited by the noise in the data. Reducing this noise can be effectively done by simply increasing the average window size. But this was not desirable because increasing the window size increases the loop time. According to Nyquist's theorem, the frequency of the loop should be at least twice than the oscillation's frequency. But by experimentation it was seen that in practice the loop time has to be many times faster than this so that the system actually responds to disturbance. 
+\newpage
+The window had to be reduced to 20 samples to make the system responsive enough.  
+\newline
+\newline
+A severe bottleneck was caused by the relatively slow I2C bus. In the future, it will certainly be beneficial to invest in faster sensors such as the ones based on the SPI bus. This will allow averaging over more samples reducing the noise. 
+\newline
+\newline
+\thispagestyle{fancy} 
+Alternatively, advanced filters such as a Kalman filter should be strongly considered. A problem with the Kalman filter is that it is difficult to determine the tuning parameters.  \cite{kf1} Some fairly advanced systems have been developed to calculate these parameters such as "reinforcement learning"\cite{kf2} which involved some trial and error and dynamic programming in order to optimise the filer. 
+\newline
+\newline
+The Simulink model that was made had a few flaws that may have given an inaccurate representation of the system. 
+\newline
+\newline
+\thispagestyle{fancy} 
+Adding white-noise to the Simulink model would ensure that the sensor noise is accounted for when calculating the PID gains. 
+\newline
+\newline
+\thispagestyle{fancy} 
+It was noticed that the servo throw was visibly reduced by 20-30 degrees when the flap was subjected to an aerodynamic torque in the wind tunnel. Clearly, the servo dynamics are different when a resistive torque is applied to it. This was not considered when approximating the servo dynamics in chapter 5. 
+\newline
+\newline
+\thispagestyle{fancy}
+Lastly, there were some minor concerns with the manufacturing quality of the laser cut parts. The surface of these parts were quite rough and could potentially cause turbulent flow. However these parts were either downstream of the pressure tappings or far away from them so the influence the surface roughness would have on the pressure readings is unlikely to amount to much.  
+\thispagestyle{fancy}
+\newline
+\newline
+On the whole, this study was a solid start to a new and unique application of control systems for flight trajectory control, and has brought to light what areas can be investigated next.   
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\renewcommand{\bibname}{References}
+\begin{thebibliography}{9}
+\thispagestyle{fancy}
+\addcontentsline{toc}{chapter}{References}
+\bibitem{ama}
+"Amazon Prime Air", Amazon.com, 2018. [Online]. Available:\url{ https://www.amazon.com/Amazon-Prime-Air/b?ie=UTF8&node=8037720011}. [Accessed: 22- Apr- 2018]. 
+\bibitem{etkin}
+B. Etkin and L. Reid, Dynamics of flight. Chichester: Wiley, 1996, pp. 15, 174,175.
+\bibitem{huang}
+C. Huang, Q. Shao, P. Jin, Z. Zhu and B. Zhang, "Pitch Attitude Controller Design and Simulation for a Small Unmanned Aerial Vehicle," 2009 International Conference on Intelligent Human-Machine Systems and Cybernetics, Hangzhou, Zhejiang, 2009, 
+URL: \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5336043&isnumber=5335881}
+\bibitem{liu}
+N. Li and M. Balas, "Aeroelastic Control of Wind Turbine Blade Using Trailing-Edge Flap", Wind Engineering, vol. 38, no. 5, p. 1, 2014.
+\bibitem{lee}
+J. Lee, J. Han, H. Shin and H. Bang, "Active load control of wind turbine blade section with trailing edge flap: Wind tunnel testing", Journal of Intelligent Material Systems and Structures, vol. 25, no. 18, pp. 2253-2255, 2014.
+\bibitem{navion} 
+R. Catterall  "State-Space Modeling of the Rigid-Body Dynamics of a Navion Airplane From Flight Data, Using Frequency-Domain Identification Techniques", 2003.
+\bibitem{far}
+"14 CFR 23.181 - Dynamic stability.", LII / Legal Information Institute, 2011. [Online]. Available: https://www.law.cornell.edu/cfr/text/14/23.181. [Accessed: 03- Feb- 2018].
+\bibitem{chung} 
+H. Chun and C. Chang, "Longitudinal stability and dynamic motions of a small passenger WIG craft", Ocean Engineering, vol. 29, no. 10, p. 1161, 2002.
+\bibitem{short}
+B. Aliyu, C. Osheku, P. Okeke, F. Opara and B. Okere, "Oscillation Analysis for Longitudinal Dynamics of a Fixed-Wing UAV Using PID Control Design", Advances in Research, vol. 5, no. 3, p. 6, 2015.
+\bibitem{comp}
+Python 3 vs C gcc (64-bit Ubuntu quad core) | Computer Language Benchmarks Game. [online] Available at: \url{https://benchmarksgame.alioth.debian.org/u64q/compare.php?lang=python3&lang2=gcc} [Accessed 13 Apr. 2018].
+\bibitem{jd}
+Anderson, Fundamentals of aerodynamics. New York: McGraw-Hill, 2011, p. 55.
+\bibitem{shan}
+C. Shannon, "Communication in the presence of noise", Proceedings of the IEEE, vol. 72, no. 9, p. 11, 1984.
+\bibitem{gordon}
+"Raspberry Pi | Wiring | Gordons Projects", Projects.drogon.net, 2018. [Online]. Available: \url{https://projects.drogon.net/raspberry-pi/wiringpi/}. [Accessed: 01- Feb- 2018].
+\bibitem{cohen}
+"Cohen Coon Tuning Method", Pages.mtu.edu, 2018. [Online]. Available: \url{http://pages.mtu.edu/~tbco/cm416/cctune.html}. [Accessed: 06- Apr- 2018].
+\bibitem{kf1}
+Saha, M., Goswami, B. and Ghosh, R. "Two novel metrics for determining the tuning parameters of the Kalman Filter". p.1, 2013.
+\bibitem{kf2}
+Goodall, C. and El-Sheimy, N. INTELLIGENT TUNING OF A KALMAN FILTER USING LOW-COST MEMS INERTIAL SENSORS. p.1, n.d.
+\thispagestyle{fancy}
+
+\thispagestyle{fancy}
+
+\end{thebibliography}
+
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\include{Appendices/AppendixA}
+%\include{Appendices/AppendixB}
+%\include{Appendices/AppendixC}
+
+
+
+\end{document}  

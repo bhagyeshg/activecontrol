@@ -1,0 +1,387 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+onehalfspacex, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+] % The class file specifying the document structure
+{MastersDoctoralThesis}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{mathpazo} % Use the Palatino font by default
+\usepackage{amsmath,amsfonts,amsthm}
+\renewcommand\bibname{References}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Bhagyesh Govilkar}
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=3.8cm, % Inner margin
+	outer=1.9cm, % Outer margin
+	bindingoffset=0cm, % Binding offset
+	top=2cm, % Top margin
+	bottom=2cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{UAV Smart Wing Control System - proactive control of short-period oscillations} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Dr. T. Glyn \textsc{Thomas}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{MEng Aeronautics and Astronautics} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Bhagyesh \textsc{Govilkar}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{http://www.southampton.ac.uk}{University of Southampton}} % Your university's name and URL, this is used in the title page and , print it elsewhere with \univname
+\department{\href{http://department.university.com}{Department or School Name}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{http://researchgroup.university.com}{Research Group Name}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{http://faculty.university.com}{Faculty Name}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+\hypersetup{allcolors=.}
+}
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[3cm]
+\begin{center}
+\includegraphics[scale=0.3]{crest.jpg}		% University/department logo - uncomment to place it
+\end{center}
+
+\large \textit{This report is submitted in partial fulfillment of the
+requirements for the MEng Aeronautics and Astronautics, Faculty of Engineering and the
+Environment, University of Southampton}\\[0.3cm] % University requirement text
+
+ 
+\vfill
+
+{\large \today}\\[4cm] % Date
+
+ 
+\vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\section*{Declaration}
+\thispagestyle{fancy}
+ I, Bhagyesh Govilkar declare that this thesis and the work presented in it are my own and has
+been generated by me as the result of my own original research.
+I confirm that:
+\begin{enumerate}
+\item  This work was done wholly or mainly while in candidature for a degree at this
+University;
+\item  Where any part of this thesis has previously been submitted for any other
+qualification at this University or any other institution, this has been clearly stated;
+\item  Where I have consulted the published work of others, this is always clearly
+attributed;
+\item  Where I have quoted from the work of others, the source is always given. With
+the exception of such quotations, this thesis is entirely my own work;
+\item  I have acknowledged all main sources of help;
+\item  Where the thesis is based on work done by myself jointly with others, I have
+made clear exactly what was done by others and what I have contributed myself;
+\item  None of this work has been published before submission.
+\end{enumerate}
+ 
+
+\cleardoublepage
+
+
+\section*{Introduction}
+\thispagestyle{fancy}
+Unmanned Aerial Vehicles are becoming increasingly mainstream. With faster and more efficient ways of manufacturing such as 3D printing gaining momentum, this will only serve to bolster the emerging market. The University of Southampton's SULSA project (Southampton University Laser Sintered Aircraft) produced an UAV that was made entirely from 3D printed parts. 
+
+There are several contemporary and potential applications of UAVs: they are widely used in agriculture to give farmers a detailed picture of the health of their farm, the amount of resources such as pesticides required and they can help cut down on labour costs; they are already being used in the defence sector mostly to carry out surveillance and reconnaissance activities, a handful are being used for offensive operations such as the MQ-9 Reaper. 
+
+With this increasing usage of UAVs, there is a strong need for a control system that can give the user a stable, reliable and robust aircraft. The aim is to reduce the frequency of UAVs crashing, increase the life-span and reduce the maintenance costs. 
+
+In this project, I will be looking specifically at a phenomenon known as a "short-period oscillation". This is one of the two longitudinal dynamic modes that occur on every aircraft, the other being a "phugoid oscillation". Short-period oscillations are characterised by the rapid decay and high frequency. A typical SPO can settle within a second and occurs at 1-2Hz. A pilot can induce a SPO by a sharp pitch input. They can also naturally occur due to a gust (impulsive increase/decrease in airspeed and/or angle of attack). 
+
+A UAV control system that does not have a SPO model is vulnerable to growing instability. It can act to reinforce the oscillation instead of canceling them. Thus it is important to systematically analyse and design a model that can handle a SPO.  
+\newpage
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\begin{acknowledgements}
+\thispagestyle{fancy}
+ % Add the acknowledgements to the table of contents
+I would like to acknowledge my supervisor, Dr T. Glyn Thomas who provided me with guidance every step of the way and supported my ideas that enabled me to complete this project.\ldots
+
+\end{acknowledgements}
+\endgroup
+\newpage
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+\thispagestyle{fancy}
+\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere\\
+\textbf{WSF} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or\\
+
+\end{abbreviations}
+\endgroup
+\newpage
+%----------------------------------------------------------------------------------------
+%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%----------------------------------------------------------------------------------------
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+\thispagestyle{fancy}
+% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+
+\end{constants}
+\endgroup
+\newpage
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+\thispagestyle{fancy}
+$a$ & distance & \si{\meter} \\
+$P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+%Symbol & Name & Unit \\
+
+\addlinespace % Gap to separate the Roman symbols from the Greek
+
+$\omega$ & angular frequency & \si{\radian} \\
+
+\end{symbols}
+\endgroup
+\newpage
+\tableofcontents
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{plain} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\chapter{Current state-of-the-art}
+The knowledge we currently have and the applications of this knowledge need to be established first to identify the areas in which we lack an understanding and where improvements and optimisations can be made. In this chapter, I intend to do exactly that. By the end of this chapter, it will be clear that there has been little development in this area. 
+
+\section{Flight dynamics}
+
+We need to understand flight dynamics to determine the modes of longitudinal oscillations.
+
+I will use the longitudinal equations of motion as a starting point :
+$$\begin{bmatrix}\Delta\dot{u}\\\dot{w}\\\dot{q}\\\Delta\dot{\theta}\end{bmatrix} =$$
+$$ \begin{bmatrix}\frac{\mathring{X}_{u}}{m}&\frac{\mathring{X}_{w}}{m}&0&-gcos\theta_{0}\\\frac{\mathring{Z}_{u}}{m-\mathring{Z}_{\dot{w}}}&\frac{\mathring{Z}_{w}}{m-\mathring{Z}_{\dot{w}}}&\frac{\mathring{Z}_{q}+mU_{\infty}}{m-\mathring{Z}_{\dot{w}}}&\frac{-mgsin\theta_{0}}{m-\mathring{Z}_{\dot{w}}}\\\frac{1}{I_{y}}\left[\mathring{M}_{u}+\frac{\mathring{M}_{\dot{w}}\mathring{Z_{u}}}{m-\mathring{Z}_{\dot{w}}}\right]&\frac{1}{I_{y}}\left[\mathring{M}_{w}+\frac{\mathring{M}_{\dot{w}}\mathring{Z_{u}}}{m-\mathring{Z}_{\dot{w}}}\right]&\frac{1}{I_{y}}\left[\mathring{M}_{q}+\frac{\mathring{M}_{\dot{w}}(\mathring{Z_{q}}+mU_{\infty})}{m-\mathring{Z}_{\dot{w}}}\right]&-\frac{M_{\dot{w}}mg\sin(\theta_{0})}{I_{y}(m-Z_{\dot{w}})}\\0&0&1&0\end{bmatrix}\begin{bmatrix}\Delta u\\w\\q\\\Delta\theta\end{bmatrix}+$$
+$$\begin{bmatrix}\frac{\Delta \mathring{X_{c}}}{m}\\\frac{\Delta \mathring{Z_{c}}}{m-\mathring{Z}{\dot{w}}}\\\frac{\Delta \mathring{M}_{c}}{I_{y}} + \frac{\mathring{M}_{\dot{w}}}{I_{y}}\frac{\Delta \mathring{Z_{c}}}{m-\mathring{Z}{\dot{w}}}\\0\end{bmatrix}$$ 
+
+The derivation of these equations are fairly straightforward but quite lengthy and can be found in virtually any flight mechanics/dynamics textbook \cite{etkin}.
+
+These equations can be rewritten in the form:
+$$\dot{\textbf{x}} = \textbf{Ax+B}$$
+Where $x$ is the state vector, $\textbf{A}$ is the system matrix (constant) and B is a vector of control forces and moments which can be considered 0.
+$$\dot{\textbf{x}}=\textbf{Ax}$$
+This is a first order ODE which means that the solutions are in the form of $$\textbf{x}=\textbf{x}_{0}e^{\lambda t}$$
+$$\lambda\textbf{x}_{0}=\textbf{Ax}_{0}$$
+$$(\textbf{A}-\lambda\textbf{I})\textbf{x}_{0}=0$$
+Non-trivial solutions occur when $det(\textbf{A}-\lambda\textbf{I})=0$. Solving this equation for any given aircraft will give a quartic equation (4th order polynomial) which when solved will give two pairs of complex conjugates. One of the pairs corresponds to the phugoid mode while the other one corresponds to the SPO. 
+
+For example, we can consider the Navion aircraft \cite{navion}:
+
+$$\textbf{A} = \begin{bmatrix}
+-0.09148&0.04242&0&-32.17\\
+10.51&-3.066&152&0\\
+0.2054&-0.05581&-2.114&0\\
+0&0&1&0
+\end{bmatrix}$$
+Computing the eigenvalue of this matrix:
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{DI.png}
+\caption{MATLAB output}
+\centering
+\end{figure}
+The matrix produces two pairs of complex conjugate eigenvalues. The first pair $\lambda_{1,2}= -2.4352 \pm 2.6461i$ is the SPO mode. The decay rate (the real part) is much greater than the other pair $\lambda_{3,4} = -0.2006 \pm 0.2593i$ and so is the frequency (coefficient of i). 
+\section{Mitigation of longitudinal dynamic modes}
+
+\subsection{SPO regulations and qualification}
+The United States of America's Federal Aviation Authority regulates SPOs in FAR Part 23.181 \cite{far} as follows:
+Any short period oscillation not including combined lateral-directional oscillations occurring between the stalling speed and the maximum allowable speed appropriate to the configuration of the airplane must be heavily damped with the primary controls -
+
+(1) Free; and
+
+(2) In a fixed position.
+\newline
+United Kingdom's Civil Aviation Authority regulates SPOs in a very similar manner and can be found in CAP482 S181. 
+
+The quality of handling is largely determined by pilot opinion. This is visualised by pilot opinion charts such as the one shown below. 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{contour.png}
+\caption{Short-period pilot opinion contours \cite{chung}}
+\centering
+\end{figure}
+
+From SPO approximation \cite{short} we can determine the natural frequency and damping ratio:
+$$\omega_{n}=\sqrt{\mathring{Z}_{w}\mathring{M}_{q}+\mathring{M}_{w}\mathring{Z}_{q}}$$
+$$\zeta = \frac{\mathring{M}_{q}+\mathring{Z}_{w}}{\omega_{n}}$$
+Therefore, simply by adjusting the aerodynamic derivatives, it is possible to conform to the regulations. The regulations do not make the existence of a control system with a SPO dedicated model mandatory. This is most likely the reason why no such system exists. Thus, to fill this gap I will be developing a system that will focus on minimising the impact of SPOs.  
+\thispagestyle{fancy}
+\subsection{Phugoid suppression}
+It is worth looking at how we deal with Phugoid oscillations first since suppressing phugoid oscillations has been well documented. This is achieved through the use of a Pitch Attitude Controller and has been described by Etkin in \textit{Dynamics of Flight Stability and and Control} \cite{etkin}. More recently, in the paper \textit{Pitch Attitude Controller Design and Simulation for a Small Unmanned Aerial Vehicle} \cite{huang} a pitch-rate feedback control system was explored. In both cases, the control system did well to suppress Phugoid oscillations and managed to weaken SPOs but relied on gyroscopes or other attitude sensors. This meant that the control system took action AFTER the flight dynamics caused a deviation in the pitch rate/angle from the nominal. This model is currently the state-of-the-art, but includes an intrinsic lag between the onset of the oscillations and the corrective action of the controller.  
+
+There has been little development in designing a control system that detects the disturbance at the source and takes action BEFORE the flight dynamics can cause an appreciable change in attitude. In this project, I will aim to achieve a control system that does not wait for a large change in attitude to occur before acting. This will hopefully reduce the amplitude of the oscillation and the associated risks. 
+\chapter{Method}
+In this chapter, major design decisions and developing the tools required for this project will be discussed. There are for major decisions that need to be made: Pressure sensors, actuators, micro-controller, and the programming language. 
+\section{Pressure sensors}
+There are a variety of sensors to choose from. There are absolute pressure sensors that simply measure the gauge or absolute pressure. Then there are pressure sensors that measure differential pressure. These have two ports and the sensor will measure the difference in pressure between them. 
+
+To calculate the lift on the wing, we will need to know the pressure distribution along the top and the bottom of the wing. A single differential pressure sensor can tell the difference in pressure at a certain chord position on the wing. For the same information, two absolute pressure sensors will be required. Furthermore, the airspeed in the wind tunnel will need to be measured. Using a differential sensor, one port can be subjected to the total/stagnation pressure from a pitot probe, and the second port will be subjected to the static pressure. The sensor will instantly give the difference between the two pressures which is the dynamic pressure. The airspeed can then be easily calculated using Bernoulli's principle: $$V=\sqrt{\frac{2(p_{0}-p)}{\rho}}$$
+
+Thus, for convenience a differential type sensor will be used. TE connectivity makes a sensor called MS4524DO in both differential and absolute flavours. There is also the option to choose between the I2C and SPI data transmission buses. 
+
+There are merits to using both buses. The I2C bus is very common and many devices use it to communicate with a 'master'. The bus typically runs at 100kbps but can reach 400kbps on fast mode. It uses a data line (SDA) and a clock line (SCL) and is therefore sometimes called 'two wire interface' (TWI). 
+
+SPI on the other hand runs much faster at around 10Mbps. The interface requires a clock line (SCLK), a MISO line (Master in Slave out), sometimes a MOSI line (Master out Slave in) and a slave select pin. 
+
+The slave select pin allows communication with a specific device on the line. In this case, we will have four pressure sensors but we will need to talk to one sensor before moving on to the next. 
+
+I2C relies on the device address. Each I2C device is given a specific address which needs to be provided before data transmission can happen. All available I2C MS4525DO sensors have the address 0x28 which creates a conflict. The I2C bus will not know which sensor to communicate with because they're all at the same address. A 'switching' mechanism will be needed to make this option viable. 
+
+The most suitable bus for this application is obviously SPI. However, there is a severe lack of availability of these sensors at a reasonable price. A compromise in speed had to be made by choosing the I2C sensor which are widely available. However, for our purpose the speed exceeds Nyquist criterion (test described in chapter) so the lower bus speed will not be an issue. 
+\thispagestyle{fancy}
+\newpage
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\renewcommand{\bibname}{References}
+\begin{thebibliography}{9}
+\addcontentsline{toc}{chapter}{References}
+\bibitem{navion} 
+Catterall, R. (2003). State-Space Modeling of the Rigid-Body Dynamics of a Navion Airplane From Flight Data, Using Frequency-Domain Identification Techniques. [online] Trace.tennessee.edu. Available at: \url{http://trace.tennessee.edu/cgi/viewcontent.cgi?article=3269&context=utk_gradthes} [Accessed 2 Feb. 2018].
+ 
+\bibitem{etkin}
+
+B. Etkin and L. Reid, Dynamics of flight. Chichester: Wiley, 1996, pp. 15, 174,175.
+ 
+\bibitem{chung} 
+H. Chun and C. Chang, "Longitudinal stability and dynamic motions of a small passenger WIG craft", Ocean Engineering, vol. 29, no. 10, p. 1161, 2002.
+
+\bibitem{huang}
+C. Huang, Q. Shao, P. Jin, Z. Zhu and B. Zhang, "Pitch Attitude Controller Design and Simulation for a Small Unmanned Aerial Vehicle," 2009 International Conference on Intelligent Human-Machine Systems and Cybernetics, Hangzhou, Zhejiang, 2009, 
+URL: \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5336043&isnumber=5335881}
+\bibitem{far}
+"14 CFR 23.181 - Dynamic stability.", LII / Legal Information Institute, 2011. [Online]. Available: https://www.law.cornell.edu/cfr/text/14/23.181. [Accessed: 03- Feb- 2018].
+\bibitem{short}
+B. Aliyu, C. Osheku, P. Okeke, F. Opara and B. Okere, "Oscillation Analysis for Longitudinal Dynamics of a Fixed-Wing UAV Using PID Control Design", Advances in Research, vol. 5, no. 3, p. 6, 2015.
+\end{thebibliography}
+
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\include{Appendices/AppendixA}
+%\include{Appendices/AppendixB}
+%\include{Appendices/AppendixC}
+
+
+
+\end{document}  

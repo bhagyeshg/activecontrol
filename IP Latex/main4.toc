@@ -1,0 +1,44 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.18}
+\contentsline {section}{\numberline {1.1}Literature review}{2}{section.19}
+\contentsline {subsection}{\numberline {1.1.1}Phugoid suppression}{2}{subsection.20}
+\contentsline {subsection}{\numberline {1.1.2}Aeroelastic control in wind turbines}{2}{subsection.21}
+\contentsline {section}{\numberline {1.2}Aims and objectives}{3}{section.23}
+\contentsline {chapter}{\numberline {2}Theory}{5}{chapter.24}
+\contentsline {section}{\numberline {2.1}Flight dynamics}{5}{section.25}
+\contentsline {subsection}{\numberline {2.1.1}The relevance to control of wing lift}{6}{subsection.34}
+\contentsline {section}{\numberline {2.2}SPO regulations and qualification}{7}{section.35}
+\contentsline {section}{\numberline {2.3}Trailing edge flap}{8}{section.39}
+\contentsline {section}{\numberline {2.4}PID controller}{8}{section.41}
+\contentsline {chapter}{\numberline {3}Instrumentation}{10}{chapter.44}
+\contentsline {section}{\numberline {3.1}Computer and programming language}{10}{section.45}
+\contentsline {section}{\numberline {3.2}Pressure sensors}{11}{section.47}
+\contentsline {section}{\numberline {3.3}Electronic setup}{12}{section.49}
+\contentsline {section}{\numberline {3.4}Sensor calibration}{14}{section.53}
+\contentsline {section}{\numberline {3.5}Data filtering}{16}{section.61}
+\contentsline {chapter}{\numberline {4}Physical design}{18}{chapter.68}
+\contentsline {section}{\numberline {4.1}Design of Main Wing}{18}{section.69}
+\contentsline {section}{\numberline {4.2}Gust Generator}{19}{section.71}
+\contentsline {chapter}{\numberline {5}Plant dynamics and Simulink modelling}{20}{chapter.74}
+\contentsline {section}{\numberline {5.1}Actuator}{20}{section.75}
+\contentsline {section}{\numberline {5.2}Dynamics of the servo}{21}{section.77}
+\contentsline {section}{\numberline {5.3}Dynamics of the flap}{24}{section.89}
+\contentsline {section}{\numberline {5.4}Simulink first principles modelling}{24}{section.93}
+\contentsline {chapter}{\numberline {6}Lift estimation and implementation}{27}{chapter.99}
+\contentsline {section}{\numberline {6.1}Lift Estimation}{27}{section.100}
+\contentsline {section}{\numberline {6.2}Implementing the controller}{29}{section.108}
+\contentsline {chapter}{\numberline {7}Wind tunnel testing}{31}{chapter.124}
+\contentsline {section}{\numberline {7.1}Measuring wind tunnel airspeed}{31}{section.125}
+\contentsline {section}{\numberline {7.2}First test}{32}{section.127}
+\contentsline {section}{\numberline {7.3}Cohen and Coon tuning}{33}{section.129}
+\contentsline {section}{\numberline {7.4}Airspeed Sweep test}{34}{section.140}
+\contentsline {section}{\numberline {7.5}Gust Response}{36}{section.143}
+\contentsline {section}{\numberline {7.6}Discussion of results}{38}{section.146}
+\contentsline {chapter}{\numberline {8}Conclusion}{39}{chapter.147}
+\contentsline {section}{\numberline {8.1}Further recommendations}{39}{section.148}
+\contentsline {chapter}{References}{41}{chapter*.149}
+\contentsline {chapter}{\numberline {A}Manufacturing and assembly}{43}{appendix.150}
+\contentsline {chapter}{\numberline {B}Risk Assessment}{46}{appendix.155}
+\contentsline {chapter}{\numberline {C}Method Statement}{50}{appendix.160}
+\contentsline {chapter}{\numberline {D}Lift Estimator}{52}{appendix.162}
+\contentsline {chapter}{\numberline {E}Code}{56}{appendix.164}
