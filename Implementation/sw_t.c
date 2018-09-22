@@ -12,8 +12,8 @@
  * */
 
 
-#include <wiringPi.h>
-#include <wiringPiI2C.h>
+#include <wiringPi.h> //wiringPi library
+#include <wiringPiI2C.h> //I2C library
 #include <stdio.h>
 #include <stdint.h>
 #include <errno.h>
