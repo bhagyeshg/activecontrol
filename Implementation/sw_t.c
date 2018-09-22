@@ -91,15 +91,15 @@ void main(){ //acquire pressure reading from pitot probe and calculate airspeed
 	int fd2 = wiringPiI2CSetup (0x77) ; // 0x77 I2C device address
 	while(1){
 		clock_gettime(CLOCK_REALTIME, &gettime_now);
-		start_time = gettime_now.tv_nsec;
+		start_time = gettime_now.tv_nsec;//record time
 		counter+=1;
 		daq(fd, fd2);
 		estimateLift();
 		control();
 		printdata();
-		clock_gettime(CLOCK_REALTIME, &gettime_now);
+		clock_gettime(CLOCK_REALTIME, &gettime_now);//record time again
 		if(gettime_now.tv_nsec - start_time>0){
-			dt = (gettime_now.tv_nsec - start_time)/1000000000;
+			dt = (gettime_now.tv_nsec - start_time)/1000000000;//calculate loop time in seconds
 		}
 
 	}
